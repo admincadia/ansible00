@@ -1,0 +1,13 @@
+---
+- hosts: webserver02
+  remote_user: admjc
+  tasks:
+    - name: Instalar última versión de Nginx
+      apt: name=nginx state=latest
+      become: yes
+    - name: Arrancar Nginx
+      service: 
+        name: nginx
+        state: started
+        enabled: yes
+      become: yes
